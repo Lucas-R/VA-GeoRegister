@@ -4,6 +4,7 @@ import { IconName } from "lucide-react/dynamic";
 import { Link, LinkProps } from "react-router";
 import { tv } from "tailwind-variants";
 import Icon from "@components/Icon";
+import Brand from "../../assets/images/Brand-black.png";
 
 const menuMobile = tv({
     base: "absolute top-0 w-full h-screen bg-white transiton duration-300 ease-in-out sm:hidden",
@@ -63,7 +64,12 @@ export default function Menu() {
 
     return (
         <div className="relative w-full h-20 px-6 flex items-center justify-between border-b border-stone-900/10">
-            <Link to="/">VA Group</Link>
+            <Link to="/">
+                <img 
+                    className="w-20"
+                    src={Brand}
+                />
+            </Link>
             <button className="sm:hidden" onClick={handleMenu}><Icon className="size-7" name="menu"/></button>
 
             <nav className={menuMobile({ isOpen: open })}>

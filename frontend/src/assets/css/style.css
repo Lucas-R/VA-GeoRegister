@@ -8,3 +8,7 @@ html {
 button {
     @apply cursor-pointer;
 }
+
+textarea, input {
+    @apply focus:outline-0;
+}

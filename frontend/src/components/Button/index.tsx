@@ -10,7 +10,7 @@ const button = tv({
             lg: "py-4 px-6 rounded-lg"
         },
         theme: {
-            primary: "bg-orange-500",
+            primary: "bg-orange-500 text-white",
             default: "bg-white"
         }
     },

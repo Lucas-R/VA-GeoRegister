@@ -2,12 +2,12 @@ import { tv, VariantProps } from "tailwind-variants";
 
 const title = tv({
     slots: {
-        heading1: "text-[44px] md:text-7xl",
-        heading2: "text-[40px] md:text-6xl",
-        heading3: "text-[36px] md:text-5xl",
-        heading4: "text-[32px] md:text-4xl",
-        heading5: "text-[28px] md:text-3xl",
-        heading6: "text-[24px] md:text-2xl",
+        heading1: "text-[44px] md:text-5xl mb-4",
+        heading2: "text-[40px] md:text-4xl mb-4",
+        heading3: "text-[36px] md:text-3xl mb-4",
+        heading4: "text-[32px] md:text-2xl mb-4",
+        heading5: "text-[28px] md:text-xl mb-4",
+        heading6: "text-[24px] md:text-xl mb-4",
     },
     variants: {
         theme: {
