@@ -18,6 +18,7 @@ export default function Element({ name, rules, children, className, rows = 5, ..
         <textarea 
             className={textarea({ class: className })} 
             rows={rows}
+            id={name}
             {...register(name, rules)} 
             {...rest}
         >

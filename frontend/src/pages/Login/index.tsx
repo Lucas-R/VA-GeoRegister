@@ -1,7 +1,7 @@
 import { useAuth, useSignIn } from "@clerk/clerk-react";
 import { useNavigate } from "react-router";
 import Button from "@components/Button";
-import Brand from "../../assets/images/brand-white.png";
+import Brand from "@assets/images/Brand-white.png";
 
 export default function Login() {
     const { signIn } = useSignIn();

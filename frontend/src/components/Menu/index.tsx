@@ -5,6 +5,7 @@ import { Link, LinkProps } from "react-router";
 import { tv } from "tailwind-variants";
 import Icon from "@components/Icon";
 import Brand from "../../assets/images/Brand-black.png";
+import Container from "@components/Container";
 
 const menuMobile = tv({
     base: "absolute top-0 w-full h-screen bg-white transiton duration-300 ease-in-out sm:hidden",
@@ -43,7 +44,7 @@ function Options() {
     return (
         <>
             <Option to="/" icon="circle-plus">Novo cadastro</Option>
-            <Option to="/usuarios" icon="book-user">Registros</Option>
+            <Option to="/registros" icon="book-user">Registros</Option>
             <Option to="/configuracoes" icon="settings">Configurações</Option>
             <button
                 onClick={() => handleSignOut()} 
@@ -63,28 +64,30 @@ export default function Menu() {
     }
 
     return (
-        <div className="relative w-full h-20 px-6 flex items-center justify-between border-b border-stone-900/10">
-            <Link to="/">
-                <img 
-                    className="w-20"
-                    src={Brand}
-                />
-            </Link>
-            <button className="sm:hidden" onClick={handleMenu}><Icon className="size-7" name="menu"/></button>
+        <div className="w-full border-b border-stone-900/10">
+            <Container className="h-20 flex items-center justify-between">
+                <Link to="/">
+                    <img 
+                        className="w-20"
+                        src={Brand}
+                        />
+                </Link>
+                <button className="sm:hidden" onClick={handleMenu}><Icon className="size-7" name="menu"/></button>
 
-            <nav className={menuMobile({ isOpen: open })}>
-                <div className="w-full h-20 px-6 flex items-center justify-between border-b border-stone-900/10">
-                    <p>Menu</p>
-                    <button onClick={handleMenu}><Icon className="size-7" name="x-circle"/></button>
-                </div>
-                <div className="flex flex-col">
+                <nav className={menuMobile({ isOpen: open })}>
+                    <div className="w-full h-20 px-6 flex items-center justify-between border-b border-stone-900/10">
+                        <p>Menu</p>
+                        <button onClick={handleMenu}><Icon className="size-7" name="x-circle"/></button>
+                    </div>
+                    <div className="flex flex-col">
+                        <Options />
+                    </div>
+                </nav>
+
+                <nav className="hidden sm:flex gap-x-4">
                     <Options />
-                </div>
-            </nav>
-
-            <nav className="hidden sm:flex gap-x-4">
-                <Options />
-            </nav>
+                </nav>
+            </Container>
         </div>
     )
 }

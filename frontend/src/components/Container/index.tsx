@@ -1,8 +1,14 @@
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {}
+import { tv, VariantProps } from "tailwind-variants"
 
-export default function Container({ children, ...rest }: ContainerProps) {
+const container = tv({
+    base: "w-full max-w-7xl m-auto p-6"
+});
+
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof container> {}
+
+export default function Container({ children, className, ...rest }: ContainerProps) {
     return (
-        <div className="w-full max-w-7xl m-auto" {...rest}>
+        <div className={container({ class: className })} {...rest}>
             { children }
         </div>
     )

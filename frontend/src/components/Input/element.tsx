@@ -8,16 +8,19 @@ const input = tv({
 interface ElementProps extends React.HTMLAttributes<HTMLInputElement> {
     name: string
     rules?: {}
+    autocomplete?: string
 }
 
-export default function Element({ name, rules, className }: ElementProps) {
+export default function Element({ name, rules, className, autocomplete, ...rest }: ElementProps) {
     const { register } = useFormContext();
     
     return (
         <input
             className={input({ class: className })}
             id={name}
+            autoComplete={autocomplete}
             {...register(name, rules)}
+            {...rest}
         />
     )
 }

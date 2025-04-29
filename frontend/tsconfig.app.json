@@ -24,8 +24,11 @@
 
     "baseUrl": ".",
     "paths": {
+      "@hooks/*": ["./src/hooks/*"],
+      "@utils/*": ["./src/utils/*"],
       "@pages/*": ["./src/pages/*"],
       "@assets/*": ["./src/assets/*"],
+      "@schemas/*": ["./src/schemas/*"],
       "@components/*": ["./src/components/*"]
     }
   },
