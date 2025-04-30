@@ -1,8 +1,8 @@
 import { Auth } from "@components/Auth";
 import { createBrowserRouter } from "react-router";
-import Register from "@pages/Register";
 import Login from "@pages/Login";
-import Users from "@pages/Users";
+import Register from "@pages/Register";
+import Records from "@pages/Records";
 import Settings from "@pages/Settings";
 
 const Router = createBrowserRouter([
@@ -16,7 +16,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/registros",
-                element: <Users />,
+                element: <Records />,
             },
             {
                 path: "/configuracoes",

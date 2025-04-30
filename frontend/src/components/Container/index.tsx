@@ -1,7 +1,7 @@
 import { tv, VariantProps } from "tailwind-variants"
 
 const container = tv({
-    base: "w-full max-w-7xl m-auto p-6"
+    base: "w-full max-w-7xl m-auto p-6 grow"
 });
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof container> {}

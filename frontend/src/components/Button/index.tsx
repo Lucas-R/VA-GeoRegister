@@ -11,6 +11,7 @@ const button = tv({
         },
         theme: {
             primary: "bg-orange-500 text-white",
+            danger: "bg-red-500 text-white",
             default: "bg-white"
         }
     },
