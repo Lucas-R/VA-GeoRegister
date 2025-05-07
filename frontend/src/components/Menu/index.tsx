@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useClerk } from "@clerk/clerk-react";
-import { IconName } from "lucide-react/dynamic";
 import { Link, LinkProps } from "react-router";
 import { tv } from "tailwind-variants";
-import Icon from "@components/Icon";
 import Brand from "../../assets/images/Brand-black.png";
 import Container from "@components/Container";
+import { MenuIcon, XCircle } from "lucide-react";
 
 const menuMobile = tv({
     base: "absolute top-0 w-full h-screen bg-white transiton duration-300 ease-in-out sm:hidden",
@@ -22,13 +21,13 @@ const menuMobile = tv({
 
 interface OptionProps extends LinkProps{
     children: React.ReactNode,
-    icon: IconName
+    // icon: IconName
 }
 
-function Option({ children, icon, ...rest }: OptionProps) {
+function Option({ children, ...rest }: OptionProps) {
     return (
         <Link className="w-full h-12 px-6 flex items-center gap-x-2 border-b border-stone-900/20 sm:hover:text-orange-500 sm:hover:underline sm:text-xs sm:uppercase sm:border-0 sm:px-0 sm:w-auto sm:h-auto" {...rest}>
-            <Icon className="sm:hidden" name={icon}/>{ children }
+            { children }
         </Link>
     )
 }
@@ -43,14 +42,14 @@ function Options() {
 
     return (
         <>
-            <Option to="/" icon="circle-plus">Novo cadastro</Option>
-            <Option to="/registros" icon="book-user">Registros</Option>
-            <Option to="/configuracoes" icon="settings">Configurações</Option>
+            <Option to="/">Novo cadastro</Option>
+            <Option to="/registros">Registros</Option>
+            <Option to="/configuracoes">Configurações</Option>
             <button
                 onClick={() => handleSignOut()} 
                 className="w-full h-10 px-6 flex items-center justify-center  gap-x-2 text-white bg-red-500 sm:hover:text-orange-500 sm:text-xs sm:uppercase sm:px-0 sm:w-auto sm:h-auto sm:bg-white sm:text-black"
             >
-                Sair<Icon name="log-out" className="size-4"/>
+                Sair
             </button>
         </>
     )
@@ -72,12 +71,12 @@ export default function Menu() {
                         src={Brand}
                         />
                 </Link>
-                <button className="sm:hidden" onClick={handleMenu}><Icon className="size-7" name="menu"/></button>
+                <button className="sm:hidden" onClick={handleMenu}><MenuIcon className="size-7"/></button>
 
                 <nav className={menuMobile({ isOpen: open })}>
                     <div className="w-full h-20 px-6 flex items-center justify-between border-b border-stone-900/10">
                         <p>Menu</p>
-                        <button onClick={handleMenu}><Icon className="size-7" name="x-circle"/></button>
+                        <button onClick={handleMenu}><XCircle className="size-7"/></button>
                     </div>
                     <div className="flex flex-col">
                         <Options />
