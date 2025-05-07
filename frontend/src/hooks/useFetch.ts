@@ -3,17 +3,27 @@ import { api } from "@utils/api";
 
 interface UserFetchProps {
     method: "GET" | "POST" | "PUT" | "DELETE"
-    url: string,
+    path: string,
+    limit?: number 
 }
 
-export default function useFetch<T>({ method, url }: UserFetchProps) {
-    const [ data, setData ]             = useState<T | null>(null);
-    const [ error, setError ]           = useState<unknown>(null);
-    const [ isLoading, setIsLoading ]   = useState(true);
+export default function useFetch<T>({ method, path, limit = 100 }: UserFetchProps) {
+    const [ data, setData ] = useState<{ result: T, total: number, page: number, prev: boolean, next: boolean } | null>(null);
+    const [ error, setError ] = useState<unknown>(null);
+    const [ isLoading, setIsLoading ] = useState(true);
+    const [ page, setPage ] = useState(1);
+
+    function prev() {
+        data?.prev && setPage(prev => prev - 1);
+    }
+
+    function next() {
+        data?.next && setPage(prev => prev + 1);
+    }
 
     async function handleFetch() {
         try {
-            const response = await api({ method, url });
+            const response = await api({ method, url: path + `?page=${page}&limit=${limit}` });
             setData(response.data);
         } catch (error) {
             setError(error);
@@ -24,7 +34,7 @@ export default function useFetch<T>({ method, url }: UserFetchProps) {
 
     useEffect(() => {
         handleFetch();
-    }, []);
+    }, [page]);
 
-    return { data, error, isLoading };
+    return { data, error, isLoading, prev, next };
 }

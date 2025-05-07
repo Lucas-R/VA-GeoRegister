@@ -64,7 +64,7 @@ export default function Menu() {
     }
 
     return (
-        <div className="w-full h-full border-b border-stone-900/10">
+        <div className="w-full h-20 border-b border-stone-900/10">
             <Container className="flex h-full items-center justify-between py-0">
                 <Link to="/">
                     <img 
