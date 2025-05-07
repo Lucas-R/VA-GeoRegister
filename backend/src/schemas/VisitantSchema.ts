@@ -14,6 +14,7 @@ const Visitant = z.object({
     id: z.string().optional(),
     name: z.string(),
     phone: z.string(),
+    by: z.string(),
     address: VisitantAddress,
     created_at: z.date().optional(),
     updated_at: z.date().optional()

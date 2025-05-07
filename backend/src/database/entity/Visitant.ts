@@ -12,6 +12,9 @@ export class Visitant implements VisitantSchema{
     @Column()
     phone!: string
 
+    @Column()
+    by!: string
+
     @Column({ type: 'jsonb', nullable: true })
     address!: VisitantAddressSchema;
   

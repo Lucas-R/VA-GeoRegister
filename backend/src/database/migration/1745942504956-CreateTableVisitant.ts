@@ -24,6 +24,10 @@ export class CreateTableVisitant1745942504956 implements MigrationInterface {
                         isUnique: true,
                     },
                     {
+                        name: "by",
+                        type: "varchar",
+                    },
+                    {
                         name: "address",
                         type: "jsonb",
                     },
